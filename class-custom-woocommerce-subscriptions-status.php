@@ -4,7 +4,7 @@ class Custom_Woocommerce_Subscription_Status
 {
 
     /**
-     * Initialize Hooks.
+     * Initialize Hooks
      *
      * @access public
      */
