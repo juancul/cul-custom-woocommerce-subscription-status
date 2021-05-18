@@ -110,6 +110,7 @@ class Custom_Woocommerce_Subscription_Status
         $registered_statuses['wc-bad-payment'] = _nx_noop('No Pago <span class="count">(%s)</span>', 'No Pago <span class="count">(%s)</span>', 'post status label including post count', 'custom-wcs-status-texts');
 
         $registered_statuses['wc-expired-offer'] = _nx_noop('Finalizado Oferta Aceptada <span class="count">(%s)</span>', 'Finalizado Oferta Aceptada <span class="count">(%s)</span>', 'post status label including post count', 'custom-wcs-status-texts');
+        $registered_statuses['wc-paused'] = _nx_noop('Pausado <span class="count">(%s)</span>', 'Pausado <span class="count">(%s)</span>', 'post status label including post count', 'custom-wcs-status-texts');
         return $registered_statuses;
     }
 
@@ -134,6 +135,7 @@ class Custom_Woocommerce_Subscription_Status
         $subscription_statuses['wc-fraud'] = _x('Fraude', 'Subscription status', 'custom-wcs-status-texts');
         $subscription_statuses['wc-bad-payment'] = _x('No Pago', 'Subscription status', 'custom-wcs-status-texts');
         $subscription_statuses['wc-expired-offer'] = _x('Finalizado Oferta Aceptada', 'Subscription status', 'custom-wcs-status-texts');
+        $subscription_statuses['wc-paused'] = _x('Pausado', 'Subscription status', 'custom-wcs-status-texts');
         return $subscription_statuses;
     }
 
@@ -158,7 +160,7 @@ class Custom_Woocommerce_Subscription_Status
         }
 
         if ($new_status == 'late-payment') {
-            if ($subscription->payment_method_supports('subscription_suspension') && $subscription->has_status(array('active', 'pending', 'on-hold', 'like-on-hold', 'late-payment', 'late-payment-30', 'late-payment-60', 'late-payment-90', 'late-payment-120', 'late-payment-150', 'late-payment-180', 'fraud', 'bad-payment', 'expired-offer'))) {
+            if ($subscription->payment_method_supports('subscription_suspension') && $subscription->has_status(array('active', 'pending', 'on-hold', 'like-on-hold', 'late-payment', 'late-payment-30', 'late-payment-60', 'late-payment-90', 'late-payment-120', 'late-payment-150', 'late-payment-180', 'fraud', 'bad-payment', 'expired-offer', 'paused'))) {
                 $can_be_updated = true;
             } else {
                 $can_be_updated = false;
@@ -166,7 +168,7 @@ class Custom_Woocommerce_Subscription_Status
         }
 
         if ($new_status == 'late-payment-30') {
-            if ($subscription->payment_method_supports('subscription_suspension') && $subscription->has_status(array('active', 'pending', 'on-hold', 'like-on-hold', 'late-payment', 'late-payment-30', 'late-payment-60', 'late-payment-90', 'late-payment-120', 'late-payment-150', 'late-payment-180', 'fraud', 'bad-payment', 'expired-offer'))) {
+            if ($subscription->payment_method_supports('subscription_suspension') && $subscription->has_status(array('active', 'pending', 'on-hold', 'like-on-hold', 'late-payment', 'late-payment-30', 'late-payment-60', 'late-payment-90', 'late-payment-120', 'late-payment-150', 'late-payment-180', 'fraud', 'bad-payment', 'expired-offer', 'paused'))) {
                 $can_be_updated = true;
             } else {
                 $can_be_updated = false;
@@ -174,42 +176,42 @@ class Custom_Woocommerce_Subscription_Status
         }
 
         if ($new_status == 'late-payment-60') {
-            if ($subscription->payment_method_supports('subscription_suspension') && $subscription->has_status(array('active', 'pending', 'on-hold', 'like-on-hold', 'late-payment', 'late-payment-30', 'late-payment-60', 'late-payment-90', 'late-payment-120', 'late-payment-150', 'late-payment-180', 'fraud', 'bad-payment', 'expired-offer'))) {
+            if ($subscription->payment_method_supports('subscription_suspension') && $subscription->has_status(array('active', 'pending', 'on-hold', 'like-on-hold', 'late-payment', 'late-payment-30', 'late-payment-60', 'late-payment-90', 'late-payment-120', 'late-payment-150', 'late-payment-180', 'fraud', 'bad-payment', 'expired-offer', 'paused'))) {
                 $can_be_updated = true;
             } else {
                 $can_be_updated = false;
             }
         }
         if ($new_status == 'late-payment-90') {
-            if ($subscription->payment_method_supports('subscription_suspension') && $subscription->has_status(array('active', 'pending', 'on-hold', 'like-on-hold', 'late-payment', 'late-payment-30', 'late-payment-60', 'late-payment-90', 'late-payment-120', 'late-payment-150', 'late-payment-180', 'fraud', 'bad-payment', 'expired-offer'))) {
+            if ($subscription->payment_method_supports('subscription_suspension') && $subscription->has_status(array('active', 'pending', 'on-hold', 'like-on-hold', 'late-payment', 'late-payment-30', 'late-payment-60', 'late-payment-90', 'late-payment-120', 'late-payment-150', 'late-payment-180', 'fraud', 'bad-payment', 'expired-offer', 'paused'))) {
                 $can_be_updated = true;
             } else {
                 $can_be_updated = true;
             }
         }
         if ($new_status == 'late-payment-120') {
-            if ($subscription->payment_method_supports('subscription_suspension') && $subscription->has_status(array('active', 'pending', 'on-hold', 'like-on-hold', 'late-payment', 'late-payment-30', 'late-payment-60', 'late-payment-90', 'late-payment-120', 'late-payment-150', 'late-payment-180', 'fraud', 'bad-payment', 'expired-offer'))) {
+            if ($subscription->payment_method_supports('subscription_suspension') && $subscription->has_status(array('active', 'pending', 'on-hold', 'like-on-hold', 'late-payment', 'late-payment-30', 'late-payment-60', 'late-payment-90', 'late-payment-120', 'late-payment-150', 'late-payment-180', 'fraud', 'bad-payment', 'expired-offer', 'paused'))) {
                 $can_be_updated = true;
             } else {
                 $can_be_updated = false;
             }
         }
         if ($new_status == 'late-payment-150') {
-            if ($subscription->payment_method_supports('subscription_suspension') && $subscription->has_status(array('active', 'pending', 'on-hold', 'like-on-hold', 'late-payment', 'late-payment-30', 'late-payment-60', 'late-payment-90', 'late-payment-120', 'late-payment-150', 'late-payment-180', 'fraud', 'bad-payment', 'expired-offer'))) {
+            if ($subscription->payment_method_supports('subscription_suspension') && $subscription->has_status(array('active', 'pending', 'on-hold', 'like-on-hold', 'late-payment', 'late-payment-30', 'late-payment-60', 'late-payment-90', 'late-payment-120', 'late-payment-150', 'late-payment-180', 'fraud', 'bad-payment', 'expired-offer', 'paused'))) {
                 $can_be_updated = true;
             } else {
                 $can_be_updated = false;
             }
         }
         if ($new_status == 'late-payment-180') {
-            if ($subscription->payment_method_supports('subscription_suspension') && $subscription->has_status(array('active', 'pending', 'on-hold', 'like-on-hold', 'late-payment', 'late-payment-30', 'late-payment-60', 'late-payment-90', 'late-payment-120', 'late-payment-150', 'late-payment-180', 'fraud', 'bad-payment', 'expired-offer'))) {
+            if ($subscription->payment_method_supports('subscription_suspension') && $subscription->has_status(array('active', 'pending', 'on-hold', 'like-on-hold', 'late-payment', 'late-payment-30', 'late-payment-60', 'late-payment-90', 'late-payment-120', 'late-payment-150', 'late-payment-180', 'fraud', 'bad-payment', 'expired-offer', 'paused'))) {
                 $can_be_updated = true;
             } else {
                 $can_be_updated = false;
             }
         }
         if ($new_status == 'fraud') {
-            if ($subscription->payment_method_supports('subscription_suspension') && $subscription->has_status(array('active', 'pending', 'on-hold', 'like-on-hold', 'late-payment', 'late-payment-30', 'late-payment-60', 'late-payment-90', 'late-payment-120', 'late-payment-150', 'late-payment-180', 'fraud', 'bad-payment', 'expired-offer'))) {
+            if ($subscription->payment_method_supports('subscription_suspension') && $subscription->has_status(array('active', 'pending', 'on-hold', 'like-on-hold', 'late-payment', 'late-payment-30', 'late-payment-60', 'late-payment-90', 'late-payment-120', 'late-payment-150', 'late-payment-180', 'fraud', 'bad-payment', 'expired-offer', 'paused'))) {
                 $can_be_updated = true;
             } else {
                 $can_be_updated = false;
@@ -217,7 +219,7 @@ class Custom_Woocommerce_Subscription_Status
         }
 
         if ($new_status == 'bad-payment') {
-            if ($subscription->payment_method_supports('subscription_suspension') && $subscription->has_status(array('active', 'pending', 'on-hold', 'like-on-hold', 'late-payment', 'late-payment-30', 'late-payment-60', 'late-payment-90', 'late-payment-120', 'late-payment-150', 'late-payment-180', 'fraud', 'bad-payment', 'expired-offer', 'expired'))) {
+            if ($subscription->payment_method_supports('subscription_suspension') && $subscription->has_status(array('active', 'pending', 'on-hold', 'like-on-hold', 'late-payment', 'late-payment-30', 'late-payment-60', 'late-payment-90', 'late-payment-120', 'late-payment-150', 'late-payment-180', 'fraud', 'bad-payment', 'expired-offer', 'expired', 'paused'))) {
                 $can_be_updated = true;
             } else {
                 $can_be_updated = false;
@@ -225,7 +227,14 @@ class Custom_Woocommerce_Subscription_Status
         }
 
         if ($new_status == 'expired-offer') {
-            if ($subscription->payment_method_supports('subscription_suspension') && $subscription->has_status(array('active', 'pending', 'on-hold', 'like-on-hold', 'late-payment', 'late-payment-30', 'late-payment-60', 'late-payment-90', 'late-payment-120', 'late-payment-150', 'late-payment-180', 'fraud', 'bad-payment', 'expired-offer', 'expired'))) {
+            if ($subscription->payment_method_supports('subscription_suspension') && $subscription->has_status(array('active', 'pending', 'on-hold', 'like-on-hold', 'late-payment', 'late-payment-30', 'late-payment-60', 'late-payment-90', 'late-payment-120', 'late-payment-150', 'late-payment-180', 'fraud', 'bad-payment', 'expired-offer', 'expired', 'paused'))) {
+                $can_be_updated = true;
+            } else {
+                $can_be_updated = false;
+            }
+        }
+        if ($new_status == 'paused') {
+            if ($subscription->payment_method_supports('subscription_suspension') && $subscription->has_status(array('active', 'pending', 'on-hold', 'like-on-hold', 'late-payment', 'late-payment-30', 'late-payment-60', 'late-payment-90', 'late-payment-120', 'late-payment-150', 'late-payment-180', 'fraud', 'bad-payment', 'expired-offer', 'expired', 'paused'))) {
                 $can_be_updated = true;
             } else {
                 $can_be_updated = false;
@@ -247,7 +256,7 @@ class Custom_Woocommerce_Subscription_Status
      */
     public function enable_active_in_new_statuses($can_be_updated, $subscription)
     {
-        if ($subscription->payment_method_supports('subscription_reactivation') && $subscription->has_status(array('on-hold', 'like-on-hold','late-payment', 'late-payment-30', 'late-payment-60', 'late-payment-90', 'late-payment-120', 'late-payment-150', 'late-payment-180', 'fraud', 'bad-payment', 'expired-offer'))) {
+        if ($subscription->payment_method_supports('subscription_reactivation') && $subscription->has_status(array('on-hold', 'like-on-hold','late-payment', 'late-payment-30', 'late-payment-60', 'late-payment-90', 'late-payment-120', 'late-payment-150', 'late-payment-180', 'fraud', 'bad-payment', 'expired-offer', 'paused'))) {
             $can_be_updated = true;
         } elseif ($subscription->has_status('pending')) {
             $can_be_updated = true;
@@ -270,7 +279,7 @@ class Custom_Woocommerce_Subscription_Status
      */
     public function enable_on_hold_in_new_statuses($can_be_updated, $subscription)
     {
-        if ($subscription->payment_method_supports('subscription_suspension') && $subscription->has_status(array('active', 'pending', 'like-on-hold', 'late-payment', 'late-payment-30', 'late-payment-60', 'late-payment-90', 'late-payment-120', 'late-payment-150', 'late-payment-180', 'fraud', 'bad-payment', 'expired-offer'))) {
+        if ($subscription->payment_method_supports('subscription_suspension') && $subscription->has_status(array('active', 'pending', 'like-on-hold', 'late-payment', 'late-payment-30', 'late-payment-60', 'late-payment-90', 'late-payment-120', 'late-payment-150', 'late-payment-180', 'fraud', 'bad-payment', 'expired-offer', 'paused'))) {
             $can_be_updated = true;
         } else {
             $can_be_updated = false;
@@ -335,6 +344,10 @@ class Custom_Woocommerce_Subscription_Status
             $subscription->update_suspension_count($subscription->suspension_count + 1);
             wcs_maybe_make_user_inactive($subscription->customer_user);
         }
+        if ($new_status == 'paused') {
+            $subscription->update_suspension_count($subscription->suspension_count + 1);
+            wcs_maybe_make_user_inactive($subscription->customer_user);
+        }
     }
 
     /**
@@ -359,6 +372,7 @@ class Custom_Woocommerce_Subscription_Status
         $bulk_actions['fraud'] = _x('Mark Fraude', 'an action on a subscription', 'custom-wcs-status-texts');
         $bulk_actions['bad-payment'] = _x('Mark No Pago', 'an action on a subscription', 'custom-wcs-status-texts');
         $bulk_actions['expired-offer'] = _x('Mark Finalizado Oferta Aceptada', 'an action on a subscription', 'custom-wcs-status-texts');
+        $bulk_actions['paused'] = _x('Mark Pausado', 'an action on a subscription', 'custom-wcs-status-texts');
         return $bulk_actions;
     }
 
@@ -400,6 +414,7 @@ class Custom_Woocommerce_Subscription_Status
             case 'fraud':
             case 'bad-payment':
             case 'expired-offer':
+            case 'paused':
                 $new_status = $action;
                 break;
             default:
@@ -446,6 +461,7 @@ class Custom_Woocommerce_Subscription_Status
                     case 'fraud':
                     case 'bad-payment':
                     case 'expired-offer':
+                    case 'paused':
                     case 'trash':
                         do_action('woocommerce_admin_changed_subscription_to_' . $action, $subscription_id);
                         break;
